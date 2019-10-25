@@ -1,0 +1,13 @@
+create table `user` (
+    `openid` char(255) not null,
+    `cretime` char(14) not null,
+    primary key (`openid`)
+) default charset utf8;
+
+create table `post` (
+`id` int auto_increment,
+`title` varchar(300) not null,
+`content` text not null,
+`cretime` char(14) not null,
+primary key(`id`)
+) default charset utf8;
