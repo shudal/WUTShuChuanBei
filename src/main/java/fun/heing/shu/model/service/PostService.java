@@ -6,5 +6,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface PostService extends PagingAndSortingRepository<Post, Integer> {
+    Page<Post> findAllByStatus(int status, Pageable pageable);
     Page<Post> findAllByCatAndStatus(String cat, int status, Pageable pageable);
 }

@@ -33,7 +33,12 @@ public class PostController {
         int size = Integer.parseInt(httpServletRequest.getParameter("size"));
 
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "cretime"));
-        Page<Post> postPage = this.postService.findAllByCatAndStatus(cat, CodeConfig.STATUS_POST_NORMAL, pageable);
+        Page<Post> postPage;
+        if (cat == null || cat.equals("") || cat.equals("latest")) {
+            postPage = this.postService.findAllByStatus(CodeConfig.STATUS_POST_NORMAL, pageable);
+        } else {
+            postPage = this.postService.findAllByCatAndStatus(cat, CodeConfig.STATUS_POST_NORMAL, pageable);
+        }
         List<Post> postList = postPage.getContent();
 
         return ApiReturn.succsss(postList);
