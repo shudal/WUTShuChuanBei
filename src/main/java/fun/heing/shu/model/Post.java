@@ -15,7 +15,7 @@ public class Post {
     @Id
     private int id;
 
-    private String cat;
+    private int cat;
     private String title;
     private String content;
     private String cretime;

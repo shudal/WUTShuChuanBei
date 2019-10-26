@@ -28,13 +28,13 @@ public class PostController {
 
     @GetMapping("cat")
     public ApiReturn getPostByCat(HttpServletRequest httpServletRequest) {
-        String cat = httpServletRequest.getParameter("cat");
+        int cat = Integer.parseInt(httpServletRequest.getParameter("cat"));
         int page = Integer.parseInt(httpServletRequest.getParameter("page")) -1 ;
         int size = Integer.parseInt(httpServletRequest.getParameter("size"));
 
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "cretime"));
         Page<Post> postPage;
-        if (cat == null || cat.equals("") || cat.equals("latest")) {
+        if (cat == CodeConfig.CAT_3) {
             postPage = this.postService.findAllByStatus(CodeConfig.STATUS_POST_NORMAL, pageable);
         } else {
             postPage = this.postService.findAllByCatAndStatus(cat, CodeConfig.STATUS_POST_NORMAL, pageable);
