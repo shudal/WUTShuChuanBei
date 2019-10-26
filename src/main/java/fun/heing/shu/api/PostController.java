@@ -43,4 +43,11 @@ public class PostController {
 
         return ApiReturn.succsss(postList);
     }
+
+    @GetMapping("post")
+    public ApiReturn getPost(HttpServletRequest httpServletRequest) {
+        int id = Integer.parseInt(httpServletRequest.getParameter("id"));
+        Post post = this.postService.getByIdAndStatus(id, CodeConfig.STATUS_POST_NORMAL);
+        return ApiReturn.succsss(post);
+    }
 }

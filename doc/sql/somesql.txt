@@ -22,7 +22,9 @@ create table `post` (
 `title` varchar(300) not null,
 `content` text not null,
 `cretime` char(14) not null,
-`cat` char(10) not null,
+`cat` tinyint not null,
+`bincat` char(20) default 'positive' not null,
+`subcat` char(20) default '' not null,
 `status` tinyint not null,
 primary key(`id`)
 ) default charset utf8;

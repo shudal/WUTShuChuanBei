@@ -20,5 +20,10 @@ public class Post {
     private String content;
     private String cretime;
 
+    // 积极/消极分类
+    private String bincat;
+    // 激昂/愤怒
+    private String subcat;
+
     private int status;
 }
