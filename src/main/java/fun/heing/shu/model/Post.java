@@ -25,5 +25,7 @@ public class Post {
     // 激昂/愤怒
     private String subcat;
 
+    private String img;
+
     private int status;
 }
