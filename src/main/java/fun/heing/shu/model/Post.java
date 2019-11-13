@@ -26,6 +26,9 @@ public class Post {
     private String subcat;
 
     private String img;
+    private String author;
+    private int type;
+    private String cover;
 
     private int status;
 }

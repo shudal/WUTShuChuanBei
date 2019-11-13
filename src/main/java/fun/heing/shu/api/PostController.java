@@ -32,7 +32,7 @@ public class PostController {
         int page = Integer.parseInt(httpServletRequest.getParameter("page")) -1 ;
         int size = Integer.parseInt(httpServletRequest.getParameter("size"));
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "cretime"));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));
         Page<Post> postPage;
         if (cat == CodeConfig.CAT_3) {
             postPage = this.postService.findAllByStatus(CodeConfig.STATUS_POST_NORMAL, pageable);
